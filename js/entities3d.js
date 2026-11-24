@@ -4,7 +4,7 @@ import { clamp, dist, rand, pick, normalizeAngle } from './utils.js';
 import { CELL } from './world3d.js';
 
 // A simple low-poly "voxel person" used for both the player and pedestrians.
-function buildHumanoid({ shirt, pants, skin, hair }) {
+function buildHumanoid({ shirt, pants, skin, hair, tie, tieAccent }) {
   const group = new THREE.Group();
   const mat = (color) => new THREE.MeshStandardMaterial({ color, roughness: 0.85 });
 
@@ -40,6 +40,21 @@ function buildHumanoid({ shirt, pants, skin, hair }) {
   face.position.set(0.3, 2.2, 0);
   group.add(face);
 
+  if (tie) {
+    const tieMesh = new THREE.Mesh(new THREE.BoxGeometry(0.14, 0.55, 0.12), mat(tie));
+    tieMesh.position.set(0.3, 1.35, 0);
+    group.add(tieMesh);
+    if (tieAccent) {
+      const stripe = new THREE.Mesh(new THREE.BoxGeometry(0.15, 0.1, 0.13), mat(tieAccent));
+      stripe.position.set(0.31, 1.5, 0);
+      stripe.rotation.x = 0.5;
+      group.add(stripe);
+    }
+    const collar = new THREE.Mesh(new THREE.BoxGeometry(0.1, 0.12, 0.7), mat(0xf4f4f0));
+    collar.position.set(0.3, 1.86, 0);
+    group.add(collar);
+  }
+
   return group;
 }
 
@@ -55,7 +70,14 @@ export class Player3D {
     this.inVehicle = null;
     this.hitCooldown = 0;
 
-    this.mesh = buildHumanoid({ shirt: 0x3b6fd1, pants: 0x2b2b35, skin: 0xe0ac69, hair: 0x2a1f1a });
+    this.mesh = buildHumanoid({
+      shirt: 0x1c2740, // navy suit jacket
+      pants: 0x15151c,
+      skin: 0xcf9f78,
+      hair: 0xcfcfd2, // grey hair
+      tie: 0x1c2740,
+      tieAccent: 0xd4ac0d, // gold accent, echoing a striped tie
+    });
     scene.add(this.mesh);
   }
 
