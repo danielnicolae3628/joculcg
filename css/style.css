@@ -1,0 +1,158 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #111;
+  font-family: "Segoe UI", Arial, sans-serif;
+  user-select: none;
+}
+
+#game {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  background: #1a1a1a;
+}
+
+#hud {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.9);
+}
+
+#topLeft {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+#healthBarWrap {
+  width: 180px;
+  height: 16px;
+  background: rgba(0,0,0,0.5);
+  border: 2px solid #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+#healthBar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff3b3b, #ff9d3b);
+  transition: width 0.15s linear;
+}
+
+#topRight {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  text-align: right;
+}
+
+#moneyText {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4CFF6B;
+  margin-bottom: 4px;
+}
+
+#wantedStars {
+  font-size: 22px;
+  letter-spacing: 2px;
+  color: #ffd84c;
+  min-height: 26px;
+}
+
+#missionBanner {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 70vw;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 600;
+  background: rgba(0,0,0,0.45);
+  padding: 6px 16px;
+  border-radius: 8px;
+}
+
+#controlsHint {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  opacity: 0.75;
+  background: rgba(0,0,0,0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+#startScreen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 30%, #1b2750, #05070f 75%);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 10;
+}
+
+#startScreen h1 {
+  font-size: 54px;
+  letter-spacing: 6px;
+  color: #ff3b7f;
+  text-shadow: 0 0 18px #ff3b7f88, 0 0 40px #4cc9ff55;
+  margin-bottom: 10px;
+}
+
+#startScreen p {
+  opacity: 0.85;
+  margin-bottom: 18px;
+}
+
+#startScreen ul {
+  list-style: none;
+  margin-bottom: 26px;
+  line-height: 1.8;
+}
+
+.dotYellow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffd84c;
+  box-shadow: 0 0 8px #ffd84c;
+  vertical-align: middle;
+}
+
+#startBtn {
+  font-size: 18px;
+  padding: 12px 34px;
+  border-radius: 30px;
+  border: none;
+  background: linear-gradient(90deg, #ff3b7f, #ff8a3b);
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+  box-shadow: 0 6px 18px rgba(255,59,127,0.4);
+}
+
+#startBtn:hover {
+  filter: brightness(1.1);
+}
+
+#startScreen.hidden {
+  display: none;
+}

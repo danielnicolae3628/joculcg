@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vice Code</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<div id="hud">
+  <div id="topLeft">
+    <div id="healthBarWrap"><div id="healthBar"></div></div>
+  </div>
+  <div id="topRight">
+    <div id="moneyText">$0</div>
+    <div id="wantedStars"></div>
+  </div>
+  <div id="missionBanner"></div>
+  <div id="controlsHint">WASD / Săgeți — mișcare &nbsp;·&nbsp; E — intră/ieși din maşină &nbsp;·&nbsp; Shift — sprint</div>
+</div>
+
+<div id="startScreen">
+  <h1>VICE CODE</h1>
+  <p>Un oraș deschis, mașini de furat, poliția pe urmele tale.</p>
+  <ul>
+    <li><b>WASD / Săgeți</b> — mișcare pe jos sau condus</li>
+    <li><b>E</b> — intră / ieși din maşină</li>
+    <li><b>Shift</b> — sprint pe jos</li>
+    <li>Mergi la marcajul <span class="dotYellow"></span> galben pentru misiuni</li>
+  </ul>
+  <button id="startBtn">Începe jocul</button>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>
